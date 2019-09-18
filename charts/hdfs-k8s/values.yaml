@@ -236,6 +236,9 @@ global:
   ## https://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/SecureMode.html#Secure_DataNode
   jsvcEnabled: true
 
+  ## Whether or not to bind to all interfaces
+  multihomedNetwork: false
+
 ## Tags and conditions for triggering a group of relevant subcharts.
 tags:
   ## Trigger all subcharts required for high availability. Enabled by default.
