@@ -82,8 +82,10 @@ spec:
           env:
             - name: HADOOP_CUSTOM_CONF_DIR
               value: /etc/hadoop-custom-conf
+            {{- if not .Values.global.multihomedNetwork }}
             - name: MULTIHOMED_NETWORK
               value: "0"
+            {{- end }}
             {{- if and .Values.global.kerberosEnabled .Values.global.jsvcEnabled }}
             - name: HADOOP_SECURE_DN_USER
               value: root

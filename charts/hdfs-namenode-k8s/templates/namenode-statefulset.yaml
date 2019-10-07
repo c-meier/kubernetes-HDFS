@@ -177,8 +177,10 @@ spec:
           env:
             - name: HADOOP_CUSTOM_CONF_DIR
               value: /etc/hadoop-custom-conf
+            {{- if not .Values.global.multihomedNetwork }}
             - name: MULTIHOMED_NETWORK
               value: "0"
+            {{- end }}
             # Used by the start script below.
             - name: MY_POD
               valueFrom:

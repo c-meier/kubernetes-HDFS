@@ -28,8 +28,10 @@ spec:
           env:
             - name: HADOOP_CUSTOM_CONF_DIR
               value: /etc/hadoop-custom-conf
+            {{- if not .Values.global.multihomedNetwork }}
             - name: MULTIHOMED_NETWORK
               value: "0"
+            {{- end }}
           command: ['/bin/sh', '-c']
           args:
             - /entrypoint.sh /usr/bin/tail -f /var/log/dmesg
